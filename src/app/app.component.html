@@ -7,11 +7,11 @@
 
 <div>
 
-  <div class="courses">
-
+  <!-- Take courses Observable and subscribe to it using the async pipe (async pipe will take take of unsubscribing from the Observable when component gets destroyed) -->
+  <div class="courses" *ngIf="courses$ | async as courses">
     <course-card *ngFor="let course of courses"
-                 [course]="course">
-
+                 [course]="course"
+                 (courseChanged)="save($event)">
       <course-image [src]="course.iconUrl"></course-image>
 
     </course-card>
