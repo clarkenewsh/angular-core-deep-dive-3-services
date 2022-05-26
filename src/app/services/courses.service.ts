@@ -35,7 +35,7 @@ export class CoursesService {
     const headers = new HttpHeaders()
     .set("X-Auth", "userId");
 
-    // Get course id using $event value input and add course payload
+    // Get course id using $event value input and add course payload data
     return this.http.put(`/api/courses/${course.id}`, course, {headers});
   }
 }

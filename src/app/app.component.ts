@@ -17,19 +17,33 @@ export class AppComponent implements OnInit {
   // Define courses Observable - value returned, array of courses
   courses$: Observable<Course[]>
 
-  // courses;
+  // hard coded courses data
+  // courses = COURSES;
 
   constructor(private coursesService: CoursesService) {
 
   }
 
-  // Call http service upon component initialization
+  // Call http CoursesService upon component init
   ngOnInit() {
 
     console.log(this.coursesService);
 
-    // Call the loadCourses function using the coursesService
+    // populate courses$ & Call the loadCourses() function using the coursesService
     this.courses$ = this.coursesService.loadCourses();
+  }
+
+  // Edit course (without mutating directly so we can use OnPush change detection - without observable stream)
+  onEditCourse() {
+    
+    // const course = this.courses[0];
+
+    // // spread over & copy course to change description property
+    // const newCourse:any = {...course};
+
+    // newCourse.description = "New Value";
+    // console.log(newCourse)
+    // this.courses[0].description = newCourse;
   }
   
   // Call courseService saveCourse method & subscribe to the observable
