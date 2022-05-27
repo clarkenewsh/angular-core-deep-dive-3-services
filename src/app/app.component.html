@@ -6,12 +6,13 @@
 </div>
 
 <div class="demo">
-  <button (click)="onEditCourse()">Edit Course</button>
+  <h4 i18n>Welcome to the Angular Core Deep Dive Course</h4>
+  <button (click)="onEditCourse()" i18n>Edit Course</button>
 </div>
 
 <div>
   <!-- Take courses Observable and subscribe to it using the async pipe (async pipe will take take of unsubscribing from the Observable when component gets destroyed) -->
-  <div class="courses" *ngIf="(courses$ | async) as courses">
+  <div class="courses" *ngIf="(courses$ | async | filterByCategory: 'BEGINNER') as courses">
     <course-card *ngFor="let course of courses"
                  [course]="course"
                  (courseChanged)="save($event)">

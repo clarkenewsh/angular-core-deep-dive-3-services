@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxUnlessDirective } from './directives/ngx-unless.directive';
 import { HighlightedDirective } from './directives/highlighted.directive';
+import { FilterByCategory } from './filter-by-category.pipe';
 
 
 @NgModule({
@@ -12,11 +13,13 @@ import { HighlightedDirective } from './directives/highlighted.directive';
     CourseCardComponent, 
     CourseImageComponent,
     HighlightedDirective,
-    NgxUnlessDirective
+    NgxUnlessDirective,
+    FilterByCategory
   ],
   exports: [
     CourseCardComponent,
-    CourseImageComponent
+    CourseImageComponent,
+    FilterByCategory
   ],
   imports: [
     CommonModule
